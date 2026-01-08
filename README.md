@@ -38,7 +38,7 @@ Separação clara de responsabilidades em camadas:
 
 ### **Padrões de Projeto Aplicados**
 
-#### 1. ??? **Repository Pattern**
+#### 1. ?? **Repository Pattern**
 - Abstração da camada de acesso a dados
 - Interface `ISalesOrderRepository`
 - Implementação mockada `SapSalesOrderRepository`
@@ -70,27 +70,27 @@ Separação clara de responsabilidades em camadas:
 
 ### **Implementações de Segurança Conforme OWASP Top 10 2021**
 
-? **A01:2021 – Broken Access Control**
+??? **A01:2021 – Broken Access Control**
 - Autenticação via API Key obrigatória
 - Validação de chaves em toda requisição
 - Logging de tentativas não autorizadas
 
-? **A03:2021 – Injection**
+??? **A03:2021 – Injection**
 - Input validation com FluentValidation
 - Sanitização de entradas
 - Uso de tipos fortemente tipados
 
-? **A04:2021 – Insecure Design**
+??? **A04:2021 – Insecure Design**
 - Rate Limiting (100 req/min)
 - Proteção contra DoS
 - Timeout configurável
 
-? **A05:2021 – Security Misconfiguration**
+??? **A05:2021 – Security Misconfiguration**
 - Diferentes configurações por ambiente
 - Logs detalhados apenas em Development
 - Não exposição de stack traces em produção
 
-? **A09:2021 – Security Logging**
+??? **A09:2021 – Security Logging**
 - Logging estruturado com Serilog
 - Auditoria de todas as operações
 - Retenção de logs (30 dias dev / 90 dias prod)
@@ -192,7 +192,7 @@ Body:
 
 ---
 
-## ?? Dados Mockados
+## ??? Dados Mockados
 
 ### **Clientes Disponíveis**
 
@@ -322,7 +322,7 @@ https://localhost:5001/swagger
 
 ---
 
-## ?? Autor
+## ????? Autor
 
 **Desenvolvido com ?? para o desafio técnico Aché Laboratórios Farmacêuticos**
 
@@ -337,4 +337,4 @@ https://localhost:5001/swagger
 
 ---
 
-[? Voltar ao topo](#-sap-s4hana-sales-order-integration-api)
+[?? Voltar ao topo](#-sap-s4hana-sales-order-integration-api)
