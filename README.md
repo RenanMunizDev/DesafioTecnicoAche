@@ -1,4 +1,4 @@
-﻿# ?? SAP S/4HANA Sales Order Integration API
+﻿# 📦 SAP S/4HANA Sales Order Integration API
 
 <div align="center">
 
@@ -6,123 +6,123 @@
 ![C#](https://img.shields.io/badge/C%23-12.0-239120?style=for-the-badge&logo=c-sharp)
 ![SAP](https://img.shields.io/badge/SAP-S%2F4HANA-0FAAFF?style=for-the-badge&logo=sap)
 
-**API REST profissional para integra��o com SAP S/4HANA - M�dulo SD (Sales & Distribution)**
+**API REST profissional para integração com SAP S/4HANA - Módulo SD (Sales & Distribution)**
 
 </div>
 
 ---
 
-## ?? Sobre o Projeto
+## 📖 Sobre o Projeto
 
-API REST desenvolvida em **.NET 8 (LTS)** para integra��o com **SAP S/4HANA** - M�dulo **SD (Sales & Distribution)**, simulando opera��es de pedidos de vendas atrav�s de integra��o **OData v4 / REST API**.
+API REST desenvolvida em **.NET 8 (LTS)** para integração com **SAP S/4HANA** - Módulo **SD (Sales & Distribution)**, simulando operações de pedidos de vendas através de integração **OData v4 / REST API**.
 
-Este projeto foi desenvolvido como parte do desafio t�cnico **Ach� Laborat�rios Farmac�uticos**, demonstrando:
+Este projeto foi desenvolvido como parte do desafio técnico **Aché Laboratórios Farmacêuticos**, demonstrando:
 
-? Arquitetura profissional e escal�vel  
-? Boas pr�ticas de desenvolvimento (SOLID, DRY, KISS)  
-? Seguran�a conforme OWASP Top 10  
-? C�digo limpo e bem documentado  
-? Padr�es de projeto reconhecidos  
+✅ Arquitetura profissional e escalável  
+✅ Boas práticas de desenvolvimento (SOLID, DRY, KISS)  
+✅ Segurança conforme OWASP Top 10  
+✅ Código limpo e bem documentado  
+✅ Padrões de projeto reconhecidos  
 
 ---
 
-## ??? Arquitetura e Padr�es de Projeto
+## 🏗️ Arquitetura e Padrões de Projeto
 
 ### **Clean Architecture**
 
-Separa��o clara de responsabilidades em camadas:
-- **Controllers**: Camada de apresenta��o (API REST)
-- **Services**: L�gica de neg�cio
-- **Repositories**: Acesso a dados (integra��o SAP mockada)
-- **Models**: Modelos de dom�nio
+Separação clara de responsabilidades em camadas:
+- **Controllers**: Camada de apresentação (API REST)
+- **Services**: Lógica de negócio
+- **Repositories**: Acesso a dados (integração SAP mockada)
+- **Models**: Modelos de domínio
 
-### **Padr�es de Projeto Aplicados**
+### **Padrões de Projeto Aplicados**
 
-#### 1. ?? **Repository Pattern**
-- Abstra��o da camada de acesso a dados
+#### 1. 🗂️ **Repository Pattern**
+- Abstração da camada de acesso a dados
 - Interface `ISalesOrderRepository`
-- Implementa��o mockada `SapSalesOrderRepository`
-- Facilita troca de implementa��o (mock ? SAP real)
+- Implementação mockada `SapSalesOrderRepository`
+- Facilita troca de implementação (mock → SAP real)
 
-#### 2. ?? **Service Layer Pattern**
-- L�gica de neg�cio isolada em servi�os
+#### 2. 🔧 **Service Layer Pattern**
+- Lógica de negócio isolada em serviços
 - Interface `ISalesOrderService`
-- Implementa��o `SalesOrderService`
-- Valida��es de regras de neg�cio
+- Implementação `SalesOrderService`
+- Validações de regras de negócio
 
-#### 3. ?? **Dependency Injection**
-- Invers�o de controle (IoC)
+#### 3. 💉 **Dependency Injection**
+- Inversão de controle (IoC)
 - Baixo acoplamento entre componentes
-- Facilita testes unit�rios
+- Facilita testes unitários
 
-#### 4. ?? **DTO Pattern**
-- Separa��o entre modelos de dom�nio e transfer�ncia de dados
-- Requests e Responses espec�ficos para API
+#### 4. 📦 **DTO Pattern**
+- Separação entre modelos de domínio e transferência de dados
+- Requests e Responses específicos para API
 
-#### 5. ?? **Middleware Pattern**
-- `GlobalExceptionHandlingMiddleware`: tratamento global de exce��es
-- `ApiKeyAuthenticationMiddleware`: autentica��o por API Key
-- `RateLimitingMiddleware`: prote��o contra abuso de API
+#### 5. 🔗 **Middleware Pattern**
+- `GlobalExceptionHandlingMiddleware`: tratamento global de exceções
+- `ApiKeyAuthenticationMiddleware`: autenticação por API Key
+- `RateLimitingMiddleware`: proteção contra abuso de API
 
 ---
 
-## ?? Seguran�a (OWASP)
+## 🔐 Segurança (OWASP)
 
-### **Implementa��es de Seguran�a Conforme OWASP Top 10 2021**
+### **Implementações de Segurança Conforme OWASP Top 10 2021**
 
-??? **A01:2021 � Broken Access Control**
-- Autentica��o via API Key obrigat�ria
-- Valida��o de chaves em toda requisi��o
-- Logging de tentativas n�o autorizadas
+✅ **A01:2021 – Broken Access Control**
+- Autenticação via API Key obrigatória
+- Validação de chaves em toda requisição
+- Logging de tentativas não autorizadas
 
-??? **A03:2021 � Injection**
+✅ **A03:2021 – Injection**
 - Input validation com FluentValidation
-- Sanitiza��o de entradas
+- Sanitização de entradas
 - Uso de tipos fortemente tipados
 
-??? **A04:2021 � Insecure Design**
+✅ **A04:2021 – Insecure Design**
 - Rate Limiting (100 req/min)
-- Prote��o contra DoS
-- Timeout configur�vel
+- Proteção contra DoS
+- Timeout configurável
 
-??? **A05:2021 � Security Misconfiguration**
-- Diferentes configura��es por ambiente
+✅ **A05:2021 – Security Misconfiguration**
+- Diferentes configurações por ambiente
 - Logs detalhados apenas em Development
-- N�o exposi��o de stack traces em produ��o
+- Não exposição de stack traces em produção
 
-??? **A09:2021 � Security Logging**
+✅ **A09:2021 – Security Logging**
 - Logging estruturado com Serilog
-- Auditoria de todas as opera��es
-- Reten��o de logs (30 dias dev / 90 dias prod)
+- Auditoria de todas as operações
+- Retenção de logs (30 dias dev / 90 dias prod)
 
 ---
 
-## ?? Princ�pios SOLID
+## 🎯 Princípios SOLID
 
-**S** - Single Responsibility: Cada classe tem uma �nica responsabilidade  
-**O** - Open/Closed: Extens�vel via interfaces, fechado para modifica��o  
-**L** - Liskov Substitution: Implementa��es intercambi�veis  
-**I** - Interface Segregation: Interfaces espec�ficas e coesas  
-**D** - Dependency Inversion: Depende de abstra��es, n�o implementa��es  
+**S** - Single Responsibility: Cada classe tem uma única responsabilidade  
+**O** - Open/Closed: Extensível via interfaces, fechado para modificação  
+**L** - Liskov Substitution: Implementações intercambiáveis  
+**I** - Interface Segregation: Interfaces específicas e coesas  
+**D** - Dependency Inversion: Depende de abstrações, não implementações  
 
-### **Outros Princ�pios**
+### **Outros Princípios**
 
-- ?? **DRY**: Valida��es centralizadas, mappers reutiliz�veis
-- ?? **KISS**: C�digo limpo, leg�vel e direto ao ponto
-- ?? **Clean Code**: Nomes descritivos, m�todos pequenos
+- 🔁 **DRY**: Validações centralizadas, mappers reutilizáveis
+- 💡 **KISS**: Código limpo, legível e direto ao ponto
+- 🧹 **Clean Code**: Nomes descritivos, métodos pequenos
 
 ---
 
-## ?? Integra��o SAP S/4HANA
+## 🔌 Integração SAP S/4HANA
 
-### **Tipo de Integra��o: OData v4 / REST API**
+### **Tipo de Integração: OData v4 / REST API**
 
 **Endpoint Real SAP:**
 ```
 https://{host}/sap/opu/odata/sap/API_SALES_ORDER_SRV
 ```
 
-**Documenta��o:** SAP API Business Hub
+**Documentação:** SAP API Business Hub
 
 ### **Mapeamento SAP**
 
@@ -132,21 +132,21 @@ https://{host}/sap/opu/odata/sap/API_SALES_ORDER_SRV
 - **KNA1**: Customer Master
 
 **Campos Mapeados:**
-- `VBELN` ? SalesOrderNumber
-- `KUNNR` ? CustomerCode
-- `MATNR` ? MaterialCode
-- `CHARG` ? BatchNumber (rastreabilidade farmac�utica)
+- `VBELN` → SalesOrderNumber
+- `KUNNR` → CustomerCode
+- `MATNR` → MaterialCode
+- `CHARG` → BatchNumber (rastreabilidade farmacêutica)
 
 ---
 
-## ?? Endpoints da API
+## 🌐 Endpoints da API
 
 ### **Base URL**
 ```
 https://localhost:{port}/api/sap/salesorders
 ```
 
-### **1. GET - Buscar Pedido por N�mero**
+### **1. GET - Buscar Pedido por Número**
 
 ```http
 GET /api/sap/salesorders/{salesOrderNumber}
@@ -192,21 +192,21 @@ Body:
 
 ---
 
-## ??? Dados Mockados
+## 📊 Dados Mockados
 
-### **Clientes Dispon�veis**
+### **Clientes Disponíveis**
 
-- `C001`: Drogaria S�o Paulo LTDA
-- `C002`: Farm�cia Pague Menos S.A.
+- `C001`: Drogaria São Paulo LTDA
+- `C002`: Farmácia Pague Menos S.A.
 - `C003`: Drogasil S.A.
 - `C004`: Raia Drogasil S.A.
-- `C005`: Panvel Farm�cias S.A.
+- `C005`: Panvel Farmácias S.A.
 
-### **Materiais Dispon�veis**
+### **Materiais Disponíveis**
 
 - `M001`: Paracetamol 500mg - R$ 15,50
 - `M002`: Ibuprofeno 600mg - R$ 22,80
-- `M003`: Dipirona S�dica 500mg - R$ 18,90
+- `M003`: Dipirona Sódica 500mg - R$ 18,90
 - `M004`: Amoxicilina 500mg - R$ 35,60
 - `M005`: Omeprazol 20mg - R$ 28,70
 
@@ -220,53 +220,53 @@ ache-pharma-api-key
 
 ---
 
-## ??? Tecnologias
+## 🛠️ Tecnologias
 
 - **.NET 8 (LTS)** - Framework principal
 - **ASP.NET Core Web API** - API REST
-- **FluentValidation** - Valida��o de dados
+- **FluentValidation** - Validação de dados
 - **Serilog** - Logging estruturado
-- **Swagger/OpenAPI** - Documenta��o da API
+- **Swagger/OpenAPI** - Documentação da API
 
 ---
 
-## ?? Estrutura do Projeto
+## 📁 Estrutura do Projeto
 
 ```
 DesafioTecnico_Ache/
-??? Controllers/          # Endpoints REST
-??? Services/             # L�gica de neg�cio
-??? Repositories/         # Acesso a dados (mockado)
-??? Interfaces/           # Contratos
-??? Models/               # Modelos de dom�nio
-??? DTOs/                 # Data Transfer Objects
-??? Validators/           # FluentValidation
-??? Middlewares/          # Seguran�a e tratamento
-??? Program.cs            # Configura��o
+├── Controllers/          # Endpoints REST
+├── Services/             # Lógica de negócio
+├── Repositories/         # Acesso a dados (mockado)
+├── Interfaces/           # Contratos
+├── Models/               # Modelos de domínio
+├── DTOs/                 # Data Transfer Objects
+├── Validators/           # FluentValidation
+├── Middlewares/          # Segurança e tratamento
+└── Program.cs            # Configuração
 ```
 
 ---
 
-## ?? Como Executar
+## 🚀 Como Executar
 
-### **Pr�-requisitos**
+### **Pré-requisitos**
 - .NET 8 SDK
 - Visual Studio 2022 ou VS Code
 
 ### **Passos**
 
-1. **Clone o reposit�rio**
+1. **Clone o repositório**
 ```bash
 git clone https://github.com/RenanMunizDev/DesafioTecnicoAche.git
 cd DesafioTecnicoAche
 ```
 
-2. **Restaurar depend�ncias**
+2. **Restaurar dependências**
 ```bash
 dotnet restore
 ```
 
-3. **Executar a aplica��o**
+3. **Executar a aplicação**
 ```bash
 dotnet run --project DesafioTecnico_Ache
 ```
@@ -282,28 +282,28 @@ https://localhost:5001/swagger
 
 ---
 
-## ?? Testes com Swagger
+## 🧪 Testes com Swagger
 
 ### **Teste 1: Buscar Pedido**
 - Execute `GET /api/sap/salesorders/SO0000001000`
-- ? Deve retornar pedido mockado
+- ✅ Deve retornar pedido mockado
 
 ### **Teste 2: Criar Pedido**
 - Execute `POST /api/sap/salesorders`
 - Use o JSON de exemplo
-- ? Pedido criado com sucesso
+- ✅ Pedido criado com sucesso
 
-### **Teste 3: Valida��es**
-- ? Sem API Key ? 401
-- ? Cliente inv�lido ? 422
-- ? Dados inv�lidos ? 400
-- ? Exceder rate limit ? 429
+### **Teste 3: Validações**
+- ❌ Sem API Key → 401
+- ❌ Cliente inválido → 422
+- ❌ Dados inválidos → 400
+- ❌ Exceder rate limit → 429
 
 ---
 
-## ?? Melhorias Futuras
+## 🔮 Melhorias Futuras
 
-### **Produ��o**
+### **Produção**
 - SAP Cloud SDK for .NET
 - OAuth 2.0 / SAML
 - Polly (retry policies)
@@ -311,8 +311,8 @@ https://localhost:5001/swagger
 - Circuit breaker
 
 ### **Testes**
-- Testes unit�rios (xUnit)
-- Testes de integra��o
+- Testes unitários (xUnit)
+- Testes de integração
 - Cobertura > 80%
 
 ### **DevOps**
@@ -322,19 +322,19 @@ https://localhost:5001/swagger
 
 ---
 
-## ????? Autor
+## 👨‍💻 Autor
 
-**Desenvolvido com ?? para o desafio t�cnico Ach� Laborat�rios Farmac�uticos**
+**Desenvolvido com 💙 para o desafio técnico Aché Laboratórios Farmacêuticos**
 
-### **Compet�ncias Demonstradas**
+### **Competências Demonstradas**
 
-? Arquitetura limpa e escal�vel  
-? C�digo profissional  
-? Seguran�a (OWASP)  
-? Boas pr�ticas (SOLID, DRY, KISS)  
-? Padr�es de projeto  
-? Integra��o SAP S/4HANA  
+✅ Arquitetura limpa e escalável  
+✅ Código profissional  
+✅ Segurança (OWASP)  
+✅ Boas práticas (SOLID, DRY, KISS)  
+✅ Padrões de projeto  
+✅ Integração SAP S/4HANA  
 
 ---
 
-[?? Voltar ao topo](#-sap-s4hana-sales-order-integration-api)
+[⬆️ Voltar ao topo](#-sap-s4hana-sales-order-integration-api)
