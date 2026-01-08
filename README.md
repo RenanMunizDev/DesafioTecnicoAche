@@ -273,7 +273,9 @@ dotnet run --project DesafioTecnico_Ache
 
 4. **Acessar o Swagger**
 ```
-https://localhost:5001/swagger
+http://localhost:5142/swagger/index.html
+https://localhost:7272/swagger/index.html
+https://localhost:44389/swagger/index.html
 ```
 
 5. **Autorizar com API Key**
