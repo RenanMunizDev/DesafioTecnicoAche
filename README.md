@@ -6,7 +6,7 @@
 ![C#](https://img.shields.io/badge/C%23-12.0-239120?style=for-the-badge&logo=c-sharp)
 ![SAP](https://img.shields.io/badge/SAP-S%2F4HANA-0FAAFF?style=for-the-badge&logo=sap)
 
-**API REST profissional para integração com SAP S/4HANA - Módulo SD (Sales & Distribution)**
+**API REST profissional para integraï¿½ï¿½o com SAP S/4HANA - Mï¿½dulo SD (Sales & Distribution)**
 
 </div>
 
@@ -14,115 +14,115 @@
 
 ## ?? Sobre o Projeto
 
-API REST desenvolvida em **.NET 8 (LTS)** para integração com **SAP S/4HANA** - Módulo **SD (Sales & Distribution)**, simulando operações de pedidos de vendas através de integração **OData v4 / REST API**.
+API REST desenvolvida em **.NET 8 (LTS)** para integraï¿½ï¿½o com **SAP S/4HANA** - Mï¿½dulo **SD (Sales & Distribution)**, simulando operaï¿½ï¿½es de pedidos de vendas atravï¿½s de integraï¿½ï¿½o **OData v4 / REST API**.
 
-Este projeto foi desenvolvido como parte do desafio técnico **Aché Laboratórios Farmacêuticos**, demonstrando:
+Este projeto foi desenvolvido como parte do desafio tï¿½cnico **Achï¿½ Laboratï¿½rios Farmacï¿½uticos**, demonstrando:
 
-? Arquitetura profissional e escalável  
-? Boas práticas de desenvolvimento (SOLID, DRY, KISS)  
-? Segurança conforme OWASP Top 10  
-? Código limpo e bem documentado  
-? Padrões de projeto reconhecidos  
+? Arquitetura profissional e escalï¿½vel  
+? Boas prï¿½ticas de desenvolvimento (SOLID, DRY, KISS)  
+? Seguranï¿½a conforme OWASP Top 10  
+? Cï¿½digo limpo e bem documentado  
+? Padrï¿½es de projeto reconhecidos  
 
 ---
 
-## ??? Arquitetura e Padrões de Projeto
+## ??? Arquitetura e Padrï¿½es de Projeto
 
 ### **Clean Architecture**
 
-Separação clara de responsabilidades em camadas:
-- **Controllers**: Camada de apresentação (API REST)
-- **Services**: Lógica de negócio
-- **Repositories**: Acesso a dados (integração SAP mockada)
-- **Models**: Modelos de domínio
+Separaï¿½ï¿½o clara de responsabilidades em camadas:
+- **Controllers**: Camada de apresentaï¿½ï¿½o (API REST)
+- **Services**: Lï¿½gica de negï¿½cio
+- **Repositories**: Acesso a dados (integraï¿½ï¿½o SAP mockada)
+- **Models**: Modelos de domï¿½nio
 
-### **Padrões de Projeto Aplicados**
+### **Padrï¿½es de Projeto Aplicados**
 
 #### 1. ?? **Repository Pattern**
-- Abstração da camada de acesso a dados
+- Abstraï¿½ï¿½o da camada de acesso a dados
 - Interface `ISalesOrderRepository`
-- Implementação mockada `SapSalesOrderRepository`
-- Facilita troca de implementação (mock ? SAP real)
+- Implementaï¿½ï¿½o mockada `SapSalesOrderRepository`
+- Facilita troca de implementaï¿½ï¿½o (mock ? SAP real)
 
 #### 2. ?? **Service Layer Pattern**
-- Lógica de negócio isolada em serviços
+- Lï¿½gica de negï¿½cio isolada em serviï¿½os
 - Interface `ISalesOrderService`
-- Implementação `SalesOrderService`
-- Validações de regras de negócio
+- Implementaï¿½ï¿½o `SalesOrderService`
+- Validaï¿½ï¿½es de regras de negï¿½cio
 
 #### 3. ?? **Dependency Injection**
-- Inversão de controle (IoC)
+- Inversï¿½o de controle (IoC)
 - Baixo acoplamento entre componentes
-- Facilita testes unitários
+- Facilita testes unitï¿½rios
 
 #### 4. ?? **DTO Pattern**
-- Separação entre modelos de domínio e transferência de dados
-- Requests e Responses específicos para API
+- Separaï¿½ï¿½o entre modelos de domï¿½nio e transferï¿½ncia de dados
+- Requests e Responses especï¿½ficos para API
 
 #### 5. ?? **Middleware Pattern**
-- `GlobalExceptionHandlingMiddleware`: tratamento global de exceções
-- `ApiKeyAuthenticationMiddleware`: autenticação por API Key
-- `RateLimitingMiddleware`: proteção contra abuso de API
+- `GlobalExceptionHandlingMiddleware`: tratamento global de exceï¿½ï¿½es
+- `ApiKeyAuthenticationMiddleware`: autenticaï¿½ï¿½o por API Key
+- `RateLimitingMiddleware`: proteï¿½ï¿½o contra abuso de API
 
 ---
 
-## ?? Segurança (OWASP)
+## ?? Seguranï¿½a (OWASP)
 
-### **Implementações de Segurança Conforme OWASP Top 10 2021**
+### **Implementaï¿½ï¿½es de Seguranï¿½a Conforme OWASP Top 10 2021**
 
-??? **A01:2021 – Broken Access Control**
-- Autenticação via API Key obrigatória
-- Validação de chaves em toda requisição
-- Logging de tentativas não autorizadas
+??? **A01:2021 ï¿½ Broken Access Control**
+- Autenticaï¿½ï¿½o via API Key obrigatï¿½ria
+- Validaï¿½ï¿½o de chaves em toda requisiï¿½ï¿½o
+- Logging de tentativas nï¿½o autorizadas
 
-??? **A03:2021 – Injection**
+??? **A03:2021 ï¿½ Injection**
 - Input validation com FluentValidation
-- Sanitização de entradas
+- Sanitizaï¿½ï¿½o de entradas
 - Uso de tipos fortemente tipados
 
-??? **A04:2021 – Insecure Design**
+??? **A04:2021 ï¿½ Insecure Design**
 - Rate Limiting (100 req/min)
-- Proteção contra DoS
-- Timeout configurável
+- Proteï¿½ï¿½o contra DoS
+- Timeout configurï¿½vel
 
-??? **A05:2021 – Security Misconfiguration**
-- Diferentes configurações por ambiente
+??? **A05:2021 ï¿½ Security Misconfiguration**
+- Diferentes configuraï¿½ï¿½es por ambiente
 - Logs detalhados apenas em Development
-- Não exposição de stack traces em produção
+- Nï¿½o exposiï¿½ï¿½o de stack traces em produï¿½ï¿½o
 
-??? **A09:2021 – Security Logging**
+??? **A09:2021 ï¿½ Security Logging**
 - Logging estruturado com Serilog
-- Auditoria de todas as operações
-- Retenção de logs (30 dias dev / 90 dias prod)
+- Auditoria de todas as operaï¿½ï¿½es
+- Retenï¿½ï¿½o de logs (30 dias dev / 90 dias prod)
 
 ---
 
-## ?? Princípios SOLID
+## ?? Princï¿½pios SOLID
 
-**S** - Single Responsibility: Cada classe tem uma única responsabilidade  
-**O** - Open/Closed: Extensível via interfaces, fechado para modificação  
-**L** - Liskov Substitution: Implementações intercambiáveis  
-**I** - Interface Segregation: Interfaces específicas e coesas  
-**D** - Dependency Inversion: Depende de abstrações, não implementações  
+**S** - Single Responsibility: Cada classe tem uma ï¿½nica responsabilidade  
+**O** - Open/Closed: Extensï¿½vel via interfaces, fechado para modificaï¿½ï¿½o  
+**L** - Liskov Substitution: Implementaï¿½ï¿½es intercambiï¿½veis  
+**I** - Interface Segregation: Interfaces especï¿½ficas e coesas  
+**D** - Dependency Inversion: Depende de abstraï¿½ï¿½es, nï¿½o implementaï¿½ï¿½es  
 
-### **Outros Princípios**
+### **Outros Princï¿½pios**
 
-- ?? **DRY**: Validações centralizadas, mappers reutilizáveis
-- ?? **KISS**: Código limpo, legível e direto ao ponto
-- ?? **Clean Code**: Nomes descritivos, métodos pequenos
+- ?? **DRY**: Validaï¿½ï¿½es centralizadas, mappers reutilizï¿½veis
+- ?? **KISS**: Cï¿½digo limpo, legï¿½vel e direto ao ponto
+- ?? **Clean Code**: Nomes descritivos, mï¿½todos pequenos
 
 ---
 
-## ?? Integração SAP S/4HANA
+## ?? Integraï¿½ï¿½o SAP S/4HANA
 
-### **Tipo de Integração: OData v4 / REST API**
+### **Tipo de Integraï¿½ï¿½o: OData v4 / REST API**
 
 **Endpoint Real SAP:**
 ```
 https://{host}/sap/opu/odata/sap/API_SALES_ORDER_SRV
 ```
 
-**Documentação:** SAP API Business Hub
+**Documentaï¿½ï¿½o:** SAP API Business Hub
 
 ### **Mapeamento SAP**
 
@@ -135,7 +135,7 @@ https://{host}/sap/opu/odata/sap/API_SALES_ORDER_SRV
 - `VBELN` ? SalesOrderNumber
 - `KUNNR` ? CustomerCode
 - `MATNR` ? MaterialCode
-- `CHARG` ? BatchNumber (rastreabilidade farmacêutica)
+- `CHARG` ? BatchNumber (rastreabilidade farmacï¿½utica)
 
 ---
 
@@ -146,7 +146,7 @@ https://{host}/sap/opu/odata/sap/API_SALES_ORDER_SRV
 https://localhost:{port}/api/sap/salesorders
 ```
 
-### **1. GET - Buscar Pedido por Número**
+### **1. GET - Buscar Pedido por Nï¿½mero**
 
 ```http
 GET /api/sap/salesorders/{salesOrderNumber}
@@ -194,19 +194,19 @@ Body:
 
 ## ??? Dados Mockados
 
-### **Clientes Disponíveis**
+### **Clientes Disponï¿½veis**
 
-- `C001`: Drogaria São Paulo LTDA
-- `C002`: Farmácia Pague Menos S.A.
+- `C001`: Drogaria Sï¿½o Paulo LTDA
+- `C002`: Farmï¿½cia Pague Menos S.A.
 - `C003`: Drogasil S.A.
 - `C004`: Raia Drogasil S.A.
-- `C005`: Panvel Farmácias S.A.
+- `C005`: Panvel Farmï¿½cias S.A.
 
-### **Materiais Disponíveis**
+### **Materiais Disponï¿½veis**
 
 - `M001`: Paracetamol 500mg - R$ 15,50
 - `M002`: Ibuprofeno 600mg - R$ 22,80
-- `M003`: Dipirona Sódica 500mg - R$ 18,90
+- `M003`: Dipirona Sï¿½dica 500mg - R$ 18,90
 - `M004`: Amoxicilina 500mg - R$ 35,60
 - `M005`: Omeprazol 20mg - R$ 28,70
 
@@ -224,9 +224,9 @@ ache-pharma-api-key
 
 - **.NET 8 (LTS)** - Framework principal
 - **ASP.NET Core Web API** - API REST
-- **FluentValidation** - Validação de dados
+- **FluentValidation** - Validaï¿½ï¿½o de dados
 - **Serilog** - Logging estruturado
-- **Swagger/OpenAPI** - Documentação da API
+- **Swagger/OpenAPI** - Documentaï¿½ï¿½o da API
 
 ---
 
@@ -235,38 +235,38 @@ ache-pharma-api-key
 ```
 DesafioTecnico_Ache/
 ??? Controllers/          # Endpoints REST
-??? Services/             # Lógica de negócio
+??? Services/             # Lï¿½gica de negï¿½cio
 ??? Repositories/         # Acesso a dados (mockado)
 ??? Interfaces/           # Contratos
-??? Models/               # Modelos de domínio
+??? Models/               # Modelos de domï¿½nio
 ??? DTOs/                 # Data Transfer Objects
 ??? Validators/           # FluentValidation
-??? Middlewares/          # Segurança e tratamento
-??? Program.cs            # Configuração
+??? Middlewares/          # Seguranï¿½a e tratamento
+??? Program.cs            # Configuraï¿½ï¿½o
 ```
 
 ---
 
 ## ?? Como Executar
 
-### **Pré-requisitos**
+### **Prï¿½-requisitos**
 - .NET 8 SDK
 - Visual Studio 2022 ou VS Code
 
 ### **Passos**
 
-1. **Clone o repositório**
+1. **Clone o repositï¿½rio**
 ```bash
 git clone https://github.com/RenanMunizDev/DesafioTecnicoAche.git
 cd DesafioTecnicoAche
 ```
 
-2. **Restaurar dependências**
+2. **Restaurar dependï¿½ncias**
 ```bash
 dotnet restore
 ```
 
-3. **Executar a aplicação**
+3. **Executar a aplicaï¿½ï¿½o**
 ```bash
 dotnet run --project DesafioTecnico_Ache
 ```
@@ -293,17 +293,17 @@ https://localhost:5001/swagger
 - Use o JSON de exemplo
 - ? Pedido criado com sucesso
 
-### **Teste 3: Validações**
+### **Teste 3: Validaï¿½ï¿½es**
 - ? Sem API Key ? 401
-- ? Cliente inválido ? 422
-- ? Dados inválidos ? 400
+- ? Cliente invï¿½lido ? 422
+- ? Dados invï¿½lidos ? 400
 - ? Exceder rate limit ? 429
 
 ---
 
 ## ?? Melhorias Futuras
 
-### **Produção**
+### **Produï¿½ï¿½o**
 - SAP Cloud SDK for .NET
 - OAuth 2.0 / SAML
 - Polly (retry policies)
@@ -311,8 +311,8 @@ https://localhost:5001/swagger
 - Circuit breaker
 
 ### **Testes**
-- Testes unitários (xUnit)
-- Testes de integração
+- Testes unitï¿½rios (xUnit)
+- Testes de integraï¿½ï¿½o
 - Cobertura > 80%
 
 ### **DevOps**
@@ -324,16 +324,16 @@ https://localhost:5001/swagger
 
 ## ????? Autor
 
-**Desenvolvido com ?? para o desafio técnico Aché Laboratórios Farmacêuticos**
+**Desenvolvido com ?? para o desafio tï¿½cnico Achï¿½ Laboratï¿½rios Farmacï¿½uticos**
 
-### **Competências Demonstradas**
+### **Competï¿½ncias Demonstradas**
 
-? Arquitetura limpa e escalável  
-? Código profissional  
-? Segurança (OWASP)  
-? Boas práticas (SOLID, DRY, KISS)  
-? Padrões de projeto  
-? Integração SAP S/4HANA  
+? Arquitetura limpa e escalï¿½vel  
+? Cï¿½digo profissional  
+? Seguranï¿½a (OWASP)  
+? Boas prï¿½ticas (SOLID, DRY, KISS)  
+? Padrï¿½es de projeto  
+? Integraï¿½ï¿½o SAP S/4HANA  
 
 ---
 
