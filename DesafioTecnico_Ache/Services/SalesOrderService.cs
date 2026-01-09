@@ -128,14 +128,14 @@ public class SalesOrderService : ISalesOrderService
             RequestedDeliveryDate = request.RequestedDeliveryDate,
             PurchaseOrderNumber = request.PurchaseOrderNumber,
             Currency = request.Currency,
-            Items = request.Items.Select(i => new SalesOrderItem
+            Items = request.Items.Select(static i => new SalesOrderItem
             {
                 MaterialCode = i.MaterialCode,
                 Quantity = i.Quantity,
                 UnitOfMeasure = i.UnitOfMeasure,
                 Plant = i.Plant,
-                StorageLocation = i.StorageLocation,
-                BatchNumber = i.BatchNumber
+                StorageLocation = i.StorageLocation ?? string.Empty,
+                BatchNumber = i.BatchNumber ?? string.Empty
             }).ToList()
         };
     }

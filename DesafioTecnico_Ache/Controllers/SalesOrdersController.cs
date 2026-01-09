@@ -35,10 +35,11 @@ public class SalesOrdersController : ControllerBase
     /// <returns>Detalhes do pedido de vendas</returns>
     /// <remarks>
     /// Exemplo de requisição:
-    /// 
-    ///     GET /api/sap/salesorders/SO0000001000
-    ///     Headers:
-    ///       X-API-Key: your-api-key-here
+    /// <code>
+    /// GET /api/sap/salesorders/SO0000001000
+    /// Headers:
+    ///   X-API-Key: your-api-key-here
+    /// </code>
     /// </remarks>
     /// <response code="200">Pedido encontrado com sucesso</response>
     /// <response code="401">API Key não fornecida ou inválida</response>
@@ -75,10 +76,11 @@ public class SalesOrdersController : ControllerBase
     /// <returns>Lista de pedidos do cliente</returns>
     /// <remarks>
     /// Exemplo de requisição:
-    /// 
-    ///     GET /api/sap/salesorders/customer/C001
-    ///     Headers:
-    ///       X-API-Key: your-api-key-here
+    /// <code>
+    /// GET /api/sap/salesorders/customer/C001
+    /// Headers:
+    ///   X-API-Key: your-api-key-here
+    /// </code>
     /// </remarks>
     /// <response code="200">Lista de pedidos retornada com sucesso (pode ser vazia)</response>
     /// <response code="401">API Key não fornecida ou inválida</response>
@@ -103,35 +105,39 @@ public class SalesOrdersController : ControllerBase
     /// <returns>Pedido criado com número gerado</returns>
     /// <remarks>
     /// Exemplo de requisição:
-    /// 
-    ///     POST /api/sap/salesorders
-    ///     Headers:
-    ///       X-API-Key: your-api-key-here
-    ///       Content-Type: application/json
-    ///     Body:
+    /// <code>
+    /// POST /api/sap/salesorders
+    /// Headers:
+    ///   X-API-Key: your-api-key-here
+    ///   Content-Type: application/json
+    /// Body:
+    /// {
+    ///   "documentType": "OR",
+    ///   "salesOrganization": "1000",
+    ///   "distributionChannel": "10",
+    ///   "division": "00",
+    ///   "customerCode": "C001",
+    ///   "requestedDeliveryDate": "2024-06-01T00:00:00Z",
+    ///   "purchaseOrderNumber": "PO-2024-001",
+    ///   "currency": "BRL",
+    ///   "items": [
     ///     {
-    ///       "documentType": "OR",
-    ///       "salesOrganization": "1000",
-    ///       "distributionChannel": "10",
-    ///       "division": "00",
-    ///       "customerCode": "C001",
-    ///       "requestedDeliveryDate": "2024-06-01T00:00:00Z",
-    ///       "purchaseOrderNumber": "PO-2024-001",
-    ///       "currency": "BRL",
-    ///       "items": [
-    ///         {
-    ///           "materialCode": "M001",
-    ///           "quantity": 10,
-    ///           "unitOfMeasure": "UN",
-    ///           "plant": "1000",
-    ///           "storageLocation": "0001",
-    ///           "batchNumber": "LOTE2024001"
-    ///         }
-    ///       ]
+    ///       "materialCode": "M001",
+    ///       "quantity": 10,
+    ///       "unitOfMeasure": "UN",
+    ///       "plant": "1000",
+    ///       "storageLocation": "0001",
+    ///       "batchNumber": "LOTE2024001"
     ///     }
-    /// 
+    ///   ]
+    /// }
+    /// </code>
+    /// <para>
     /// Clientes válidos mockados: C001, C002, C003, C004, C005
+    /// </para>
+    /// <para>
     /// Materiais válidos mockados: M001 (Paracetamol), M002 (Ibuprofeno), M003 (Dipirona), M004 (Amoxicilina), M005 (Omeprazol)
+    /// </para>
     /// </remarks>
     /// <response code="201">Pedido criado com sucesso</response>
     /// <response code="400">Dados de entrada inválidos (erro de validação)</response>

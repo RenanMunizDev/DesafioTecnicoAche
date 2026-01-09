@@ -122,7 +122,29 @@ app.MapControllers();
 // Log de inicialização
 Log.Information("SAP S/4HANA Sales Order Integration API iniciada");
 Log.Information("Ambiente: {Environment}", app.Environment.EnvironmentName);
-Log.Information("Swagger disponível em: /swagger");
+
+// Obter URLs configuradas
+var urls = builder.Configuration["ASPNETCORE_URLS"]?.Split(';') ?? 
+           builder.WebHost.GetSetting("urls")?.Split(';') ?? 
+           new[] { "http://localhost:5000" };
+
+Log.Information("========================================");
+Log.Information("URLs da API:");
+foreach (var url in urls)
+{
+    Log.Information("  - {Url}", url);
+}
+
+if (app.Environment.IsDevelopment())
+{
+    Log.Information("========================================");
+    Log.Information("Swagger disponível em:");
+    foreach (var url in urls)
+    {
+        Log.Information("  - {SwaggerUrl}", $"{url}/swagger");
+    }
+}
+Log.Information("========================================");
 
 try
 {

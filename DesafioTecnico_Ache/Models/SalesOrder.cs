@@ -1,7 +1,7 @@
 namespace DesafioTecnico_Ache.Models;
 
 /// <summary>
-/// Representa um pedido de vendas no SAP S/4HANA módulo SD (Sales & Distribution)
+/// Representa um pedido de vendas no SAP S/4HANA módulo SD (Sales &amp; Distribution)
 /// Equivalente à tabela VBAK (Sales Document: Header Data) no SAP
 /// </summary>
 public class SalesOrder
